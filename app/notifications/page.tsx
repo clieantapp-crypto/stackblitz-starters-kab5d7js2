@@ -38,7 +38,7 @@ interface Notification {
   notificationCount: number;
   personalInfo?: {
     id: string;
-    fullName: string;
+    fullName?: string;
     phone: string;
   };
   bank: string;
@@ -213,7 +213,7 @@ export default function NotificationsPage1() {
               {notifications.map((notification) => (
                 <tr key={notification.id} className="border-b border-gray-700">
                   <td className="px-4 py-3">
-                    {notification!.personalInfo!.fullName}
+                    {notification!.personalInfo?.fullName}
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex flex-col sm:flex-row gap-2">
@@ -299,7 +299,7 @@ export default function NotificationsPage1() {
               <div className="space-y-2">
                 <p>
                   <strong>الاسم الكامل:</strong>{" "}
-                  {selectedNotification.personalInfo.fullName}
+                  {selectedNotification.personalInfo?.fullName}
                 </p>
                 <p>
                   <strong>رقم الهوية:</strong>{" "}
@@ -386,3 +386,4 @@ export default function NotificationsPage1() {
     </div>
   );
 }
+
